@@ -6,6 +6,6 @@ size = int(input('Введите размер последовательност
 element = 1
 my_summ = 0
 for i in range(size):
-    summ += element
+    my_summ += element
     element /= -2
 print(my_summ)

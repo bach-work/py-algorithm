@@ -9,8 +9,11 @@ input_list = [randint(-1000, 1000) for _ in range(11)]
 print(input_list)
 
 max_el = -1000  # т.к. значения в списке [-1000:1000]
-for x in input_list:
+index = 0
+for i, x in enumerate(input_list):
     if max_el < x < 0:
         max_el = x
+        index = i
 
 print('Максимальный отрицательный элемент: {}'.format(max_el))
+print('Его позиция: {}'.format(index))

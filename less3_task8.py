@@ -10,5 +10,4 @@ while len(my_matrix) < 4:
     row_list.append(reduce(lambda a, b: a + b, row_list))
     my_matrix.append(row_list)
 
-for row in my_matrix:
-    print(row)
+print('\n'.join(list(map(str, my_matrix))))

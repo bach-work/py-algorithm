@@ -11,11 +11,6 @@ def find_rec(n: int, res_dict: dict = None):
     res_dict['even' if (n % 10) % 2 else 'odd'] += 1
     return find_rec(n // 10, res_dict)
 
-
-# print(find_rec(34560))
-
-#cProfile.run('find_rec(345603456034560345603456034560345603456034560345603456034560345603456034560)')
-
 # python -m timeit -n 1000 -s "import less4_task1_2" "less4_task1_2.find_rec(34560)
 # 1000 loops, best of 5: 1.6 usec per loop
 # python -m timeit -n 1000 -s "import less4_task1_2" "less4_task1_2.find_rec(345603456034560)"

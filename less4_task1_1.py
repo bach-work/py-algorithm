@@ -5,8 +5,6 @@ import cProfile
 
 # ---- Через цикл ----
 def find_loop(num: int) -> dict:
-    even = 0  # четный
-    odd = 0  # нечетный
     res_dict = {"even": 0, "odd": 0}
     while num > 0:
         if (num % 10) % 2 == 0:
@@ -16,9 +14,6 @@ def find_loop(num: int) -> dict:
         num = num // 10
     return res_dict
 
-
-#cProfile.run('find_loop(345603456034560345603456034560345603456034560345603456034560345603456034560)')
-print(find_loop(34560))
 
 # python -m timeit -n 1000 -s "import less4_task1_1" "less4_task1_1.find_loop(34560)
 # 1000 loops, best of 5: 1.17 usec per loop

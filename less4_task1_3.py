@@ -10,10 +10,6 @@ def find_str(num: int) -> dict:
         res_dict["even" if int(n) & 1 == 0 else "odd"] += 1
     return res_dict
 
-
-#print(find_str(34560))
-# cProfile.run('find_str(345603456034560345603456034560345603456034560345603456034560345603456034560)')
-
 # python -m timeit -n 1000 -s "import less4_task1_3" "less4_task1_3.find_str(34560)
 # 1000 loops, best of 5: 1.93 usec per loop
 # python -m timeit -n 1000 -s "import less4_task1_3" "less4_task1_3.find_str(345603456034560)

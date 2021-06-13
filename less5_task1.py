@@ -11,36 +11,27 @@ from random import randint
 # Описание компании. p1, p2, p3, p4 - прибыль в соответсвующий квартал
 Company = namedtuple('Company', ['name', 'p1', 'p2', 'p3', 'p4'])
 
+
+def gen_company(n: str) -> Company:
+    return Company(name=n, p1=randint(3000, 6000), p2=randint(3000, 6000),
+                   p3=randint(3000, 6000), p4=randint(3000, 6000))
+
+
 company_list = []
 count = int(input('Введите количество компаний: '))
+print('-' * 30)
 while len(company_list) < count:
-    c = Company
-    c.name = input('Введите название компании: ')
-    c.p1 = int(input('Введите доход в первый квартал: '))
-    c.p2 = int(input('Введите доход во второй квартал: '))
-    c.p3 = int(input('Введите доход в третий квартал: '))
-    c.p4 = int(input('Введите доход в четвертый квартал: '))
-    company_list.append(copy.deepcopy(c))
+    name = input('Введите название компании: ')
+    p1 = int(input('Введите доход в первый квартал: '))
+    p2 = int(input('Введите доход во второй квартал: '))
+    p3 = int(input('Введите доход в третий квартал: '))
+    p4 = int(input('Введите доход в четвертый квартал: '))
+    company_list.append(Company(name, p1, p2, p3, p4))
+    print('-' * 30)
 
-# company_list.append(Company)
-# c = company_list[len(company_list) - 1]
-
-# company_list = [Company(name='Иллюзион',
-#                         p1=randint(3000, 6000), p2=randint(3000, 6000),
-#                         p3=randint(3000, 6000), p4=randint(3000, 6000)),
-#                 Company(name='Киномакс',
-#                         p1=randint(3000, 6000), p2=randint(3000, 6000),
-#                         p3=randint(3000, 6000), p4=randint(3000, 6000)),
-#                 Company(name='Юность',
-#                         p1=randint(3000, 6000), p2=randint(3000, 6000),
-#                         p3=randint(3000, 6000), p4=randint(3000, 6000)),
-#                 Company(name='Пролетарий',
-#                         p1=randint(3000, 6000), p2=randint(3000, 6000),
-#                         p3=randint(3000, 6000), p4=randint(3000, 6000))
-#                 ]
-
-for c in company_list:
-    print(c.name, c.p1, c.p2, c.p3, c.p4)
+# --------- Если лень вводить руками, закомменть строки 21 - 30, а нижнее открой ------------------------
+# company_list = [gen_company('Иллюзион'), gen_company('Киномакс'),
+#                 gen_company('Юность'), gen_company('Пролетарий')]
 
 average = reduce(lambda prev, curr: prev + curr, [sum([c.p1, c.p2, c.p3, c.p4]) for c in company_list]) \
           / len(company_list)
